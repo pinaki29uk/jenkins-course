@@ -1,5 +1,10 @@
 node {
-    def myGradleContainer = docker.image('gradle:jdk8-alpine')
+    def myGradleContainer = docker {
+    image                 'gradle:jdk8-alpine'
+    reuseNode             true
+    registryUrl           'https://registry-1.docker.io'
+    registryCredentialsId 'pinaki123'
+    }
     myGradleContainer.pull()
 
     stage('prep') {
