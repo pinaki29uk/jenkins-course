@@ -6,10 +6,6 @@ node {
         git url: 'https://github.com/pinaki29uk/jenkins-course.git'
     }
 
-    stage('dir') {
-          dir('gs-gradle')
-    }
-    
     stage('build') {
      // myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
      //   sh 'cd complete && /opt/gradle/bin/gradle build'
