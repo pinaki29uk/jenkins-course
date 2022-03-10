@@ -9,7 +9,7 @@ node {
     stage('build') {
      // myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
      //   sh 'cd complete && /opt/gradle/bin/gradle build'
-          sh 'cd /gs-gradle/complete;/gradle-7.4.1/bin/gradle build'
+          sh 'pwd'
      //   sh '/gradle-7.4.1/bin/gradle build'
      // }
     }
