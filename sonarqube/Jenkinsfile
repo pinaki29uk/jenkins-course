@@ -10,7 +10,7 @@ node {
      // myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
      //   sh 'cd complete && /opt/gradle/bin/gradle build'
      //  dir('/var/jenkins_home/workspace/sonarqube/gs-gradle/complete') {
-          sh 'cd /var/jenkins_home/workspace/sonarqube/gs-gradle && /gradle-7.4.1/bin/gradle clean build'
+          sh 'cd /var/jenkins_home/workspace/sonarqube/gs-gradle && gradle clean build'
      //   sh '/gradle-7.4.1/bin/gradle build'
     //  }
     }
