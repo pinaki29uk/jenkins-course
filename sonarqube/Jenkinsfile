@@ -6,20 +6,20 @@ node {
         git url: 'https://github.com/pinaki29uk/jenkins-course.git'
     }
 
-    stage('build') {
+   // stage('build') {
      // myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
      //   sh 'cd complete && /opt/gradle/bin/gradle build'
-        dir('/var/jenkins_home/workspace/sonarqube/gs-gradle') {
-          sh '/gradle-7.4.1/bin/gradle build'
+   //     dir('/var/jenkins_home/workspace/sonarqube/gs-gradle') {
+   //       sh '/gradle-7.4.1/bin/gradle build'
      //   sh '/gradle-7.4.1/bin/gradle build'
-      }
-    }
+   //   }
+ //   }
 
     stage('sonar-scanner') {
       def sonarqubeScannerHome = tool name: 'sonar', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
       withCredentials([string(credentialsId: 'sonar', variable: 'sonarLogin')]) {
      //   sh "${sonarqubeScannerHome}/bin/sonar-scanner -e -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=${sonarLogin} -Dsonar.projectName=gs-gradle -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=GS -Dsonar.sources=complete/src/main/ -Dsonar.tests=complete/src/test/ -Dsonar.language=java -Dsonar.java.binaries=."
-          sh "${sonarqubeScannerHome}/bin/sonar-scanner -e -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=${sonarLogin} -Dsonar.projectName=gs-gradle -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=GS -Dsonar.sources=/var/jenkins_home/workspace/sonarqube/gs-gradle/complete/src/main/ -Dsonar.tests=/var/jenkins_home/workspace/sonarqube/gs-gradle/complete/src/test/ -Dsonar.language=java -Dsonar.java.binaries=."
+          sh "${sonarqubeScannerHome}/bin/sonar-scanner -e -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=${sonarLogin} -Dsonar.projectName=gs-gradle -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=GS -Dsonar.sources=/var/jenkins_home/workspace/sonarqube/gs-gradle/complete/src/main/java/hello/ -Dsonar.tests=/var/jenkins_home/workspace/sonarqube/gs-gradle/complete/src/test/java/hello/ -Dsonar.language=java -Dsonar.java.binaries=."
       }
     } 
 }
