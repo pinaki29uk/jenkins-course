@@ -9,10 +9,10 @@ node {
     stage('build') {
      // myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
      //   sh 'cd complete && /opt/gradle/bin/gradle build'
-       dir('/var/jenkins_home/workspace/sonarqube/gs-gradle/complete') {
-          sh '/gradle-7.4.1/bin/gradle build'
+     //  dir('/var/jenkins_home/workspace/sonarqube/gs-gradle/complete') {
+          sh 'cd /var/jenkins_home/workspace/sonarqube/gs-gradle/complete && /gradle-7.4.1/bin/gradle build'
      //   sh '/gradle-7.4.1/bin/gradle build'
-      }
+    //  }
     }
 
     stage('sonar-scanner') {
